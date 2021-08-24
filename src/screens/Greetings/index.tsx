@@ -2,16 +2,22 @@ import React from 'react';
 import { 
   View, 
   SafeAreaView, 
-  TouchableOpacity, 
   Text,
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
+import { SmallButton } from '../../components/SmallButton';
 import GreetingsSvg from '../../assets/greetings.svg';
 
 import { styles } from './styles';
 
 export function Greetings() {
+  const navigation = useNavigation();
+
+  function handleGoToNextScreen() {
+    navigation.navigate('Disclaimer');
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View/>
@@ -29,15 +35,7 @@ export function Greetings() {
         <GreetingsSvg width={300} height={220} />
       </View>
 
-      <TouchableOpacity
-        style={styles.button}
-        activeOpacity={0.8}
-      >
-        <Feather 
-          name='chevron-right' 
-          style={styles.buttonIcon} 
-        />
-      </TouchableOpacity>
+      <SmallButton onPressAction={handleGoToNextScreen} />
     </SafeAreaView>
   );
 }

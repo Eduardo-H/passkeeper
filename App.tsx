@@ -6,7 +6,8 @@ import {
   Poppins_600SemiBold 
 } from '@expo-google-fonts/poppins';
 import AppLoading from 'expo-app-loading';
-import { Greetings } from './src/screens/Greetings';
+
+import { Routes } from './src/routes';
 
 export default function App() {
   const [ fontsLoaded ] = useFonts({
@@ -20,6 +21,6 @@ export default function App() {
   }
 
   return (
-    <Greetings/>
+    <Routes />
   );
 }
