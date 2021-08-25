@@ -8,12 +8,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
     paddingVertical: 50,
-    backgroundColor: theme.colors.gray50
+    backgroundColor: theme.colors.background
   },
   title: {
     fontSize: 24,
     fontFamily: theme.fonts.text600,
-    color: theme.colors.gray800
+    color: theme.colors.text
   },
   illustration: {
     marginVertical: 25
@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     fontFamily: theme.fonts.text400,
-    color: theme.colors.gray800,
+    color: theme.colors.text,
     textAlign: 'center'
   }
 })
