@@ -6,14 +6,15 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 50,
+    paddingBottom: 30,
     paddingHorizontal: 20,
     backgroundColor: theme.colors.background
   },
   title: {
     fontSize: 24,
     fontFamily: theme.fonts.text600,
-    color: theme.colors.text
+    color: theme.colors.text,
+    textAlign: 'center',
   },
   subtitle: {
     fontSize: 16,

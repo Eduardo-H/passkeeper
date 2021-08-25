@@ -6,8 +6,8 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    paddingTop: getStatusBarHeight() + 30,
     paddingHorizontal: 20,
+    paddingTop: getStatusBarHeight() + 30,
     paddingBottom: 30,
   },
   title: {
