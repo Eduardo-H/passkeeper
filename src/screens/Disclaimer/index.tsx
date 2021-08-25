@@ -11,7 +11,7 @@ export function Disclaimer() {
   const navigation = useNavigation();
 
   function handleStart() {
-    // navigation.navigate('UserRegister');
+    navigation.navigate('UserRegister');
   }
 
   return (

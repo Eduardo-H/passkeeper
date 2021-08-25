@@ -1,8 +1,17 @@
 import { Appearance } from 'react-native';
 
+interface ColorProps {
+  primary: string;
+  secondary: string;
+  background: string;
+  text: string;
+  input: string;
+  white: string;
+}
+
 const colorScheme = Appearance.getColorScheme();
 
-let colors = {};
+let colors = {} as ColorProps;
 
 if (colorScheme === 'light') {
   colors = {
@@ -10,6 +19,7 @@ if (colorScheme === 'light') {
     secondary: '#F3F3F3',
     background: '#FBFBFB',
     text: '#2C2C2C',
+    input: '#FFFFFF',
     white: '#FFFFFF'
   };
 } else {
@@ -18,6 +28,7 @@ if (colorScheme === 'light') {
     secondary: '#2A3650',
     background: '#262D3B',
     text: '#FFFFFF',
+    input: '#2A3650',
     white: '#FFFFFF'
   };
 }

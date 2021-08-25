@@ -8,6 +8,7 @@ import {
 import AppLoading from 'expo-app-loading';
 
 import { Routes } from './src/routes';
+import { AuthProvider } from './src/hooks/useAuth';
 
 export default function App() {
   const [ fontsLoaded ] = useFonts({
@@ -21,6 +22,8 @@ export default function App() {
   }
 
   return (
-    <Routes />
+    <AuthProvider>
+      <Routes />
+    </AuthProvider>
   );
 }
