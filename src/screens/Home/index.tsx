@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
+import { SafeAreaView, StatusBar, View, Text } from 'react-native';
 import { CategoryList } from '../../components/CategoryList';
 import { Header } from '../../components/Header';
 import { PasswordList } from '../../components/PasswordList';
@@ -73,6 +73,16 @@ export function Home() {
           categorySelected={categorySelected}
           setCategorySelected={selectCategory}
         />
+
+        <View style={styles.info}>
+          <Text style={styles.title}>
+            Your Passwords
+          </Text>
+
+          <Text style={styles.count}>
+            Total of {passwords.length} passwords
+          </Text>
+        </View>
 
         <PasswordList 
           passwords={passwords} 

@@ -9,10 +9,10 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: theme.fonts.text400,
     color: theme.colors.text,
-    paddingLeft: 30,
+    paddingLeft: 20,
     marginBottom: 10
   },
   list: {
-    paddingLeft: 30
+    paddingLeft: 20
   }
 });
