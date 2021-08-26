@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import { Text } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
@@ -17,7 +18,7 @@ export function CategoryList({
   setCategorySelected
 }: CategoryListProps) {
   return (
-    <>
+    <View style={styles.container}>
       <Text style={styles.title}>
         Wich category{'\n'}
         are you looking for?
@@ -40,6 +41,6 @@ export function CategoryList({
           ))
         }
       </ScrollView>
-    </>
+    </View>
   );
 }
