@@ -1,4 +1,5 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
 import { 
   Poppins_400Regular, 
@@ -22,8 +23,16 @@ export default function App() {
   }
 
   return (
-    <AuthProvider>
-      <Routes />
-    </AuthProvider>
+    <>
+      <StatusBar 
+        barStyle={"light-content"} 
+        backgroundColor="transparent"
+        translucent
+      />
+
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+    </>
   );
 }

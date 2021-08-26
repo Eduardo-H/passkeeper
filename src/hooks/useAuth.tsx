@@ -18,6 +18,7 @@ type User = {
 type AuthContextData = {
   user: User;
   loading: boolean;
+  loadUser: () => void;
 }
 
 type AuthProviderProps = {
@@ -27,16 +28,14 @@ type AuthProviderProps = {
 export const AuthContext = createContext({} as AuthContextData);
 
 function AuthProvider({ children }: AuthProviderProps) {
+  const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User>({} as User);
-  const [loading, setLoading] = useState(false);
 
-  async function loadUserStorageData() {
-    setLoading(true);
-
+  async function loadUser() {
     const storage = await AsyncStorage.getItem(COLLECTION_USERS);
 
     if (storage) {
-      const userLogged = JSON.parse(storage) as User;
+      const userLogged = await JSON.parse(storage) as User;
 
       setUser(userLogged);
     }
@@ -46,11 +45,11 @@ function AuthProvider({ children }: AuthProviderProps) {
 
   
   useEffect(() => {
-    loadUserStorageData();
+    loadUser();
   }, []);
 
   return (
-    <AuthContext.Provider value={{user, loading }}>
+    <AuthContext.Provider value={{ user, loading, loadUser }}>
       {children}
     </AuthContext.Provider>
   )

@@ -7,6 +7,7 @@ import { TextInput, TouchableWithoutFeedback } from 'react-native-gesture-handle
 import { Button } from '../../components/Button';
 import { COLLECTION_USERS } from '../../configs/database';
 import { theme } from '../../global/styles/themes';
+import { useAuth } from '../../hooks/useAuth';
 
 import { styles } from './styles';
 
@@ -14,6 +15,7 @@ export function UserRegister() {
   const [username, setUsername] = useState('');
 
   const navigation = useNavigation();
+  const { loadUser } = useAuth();
   
   async function handleSaveUsername() {
     const newUser = {
@@ -26,7 +28,9 @@ export function UserRegister() {
       JSON.stringify(newUser)
     );
 
-    // navigation.navigate('Home');
+    loadUser();
+    
+    navigation.navigate('Home');
   }
 
   return (

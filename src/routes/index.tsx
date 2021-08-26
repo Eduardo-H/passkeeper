@@ -3,9 +3,14 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { AppRoutes } from './app.routes';
 import { useAuth } from '../hooks/useAuth';
+import AppLoading from 'expo-app-loading';
 
 export function Routes() {
-  const { user } = useAuth();
+  const { loading } = useAuth();
+
+  if (loading) {
+    return <AppLoading />
+  }
 
   return (
     <NavigationContainer>

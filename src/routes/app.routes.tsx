@@ -1,13 +1,17 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { useAuth } from '../hooks/useAuth';
 import { Greetings } from '../screens/Greetings';
 import { Disclaimer } from '../screens/Disclaimer';
 import { UserRegister } from '../screens/UserRegister';
+import { Home } from '../screens/Home';
 
 const { Navigator, Screen } = createStackNavigator();
 
 export function AppRoutes() {
+  const { user } = useAuth();
+
   return (
     <Navigator
       screenOptions={{
@@ -16,7 +20,9 @@ export function AppRoutes() {
           backgroundColor: 'transparent'
         }
       }}
+      initialRouteName={ user.username ? 'Home' : 'Greetings' }
     >
+      
       <Screen
         name="Greetings"
         component={Greetings}
@@ -31,6 +37,12 @@ export function AppRoutes() {
         name="UserRegister"
         component={UserRegister}
       />
+
+      <Screen
+        name="Home"
+        component={Home}
+      />
+
     </Navigator>
-  );
+  );  
 }
