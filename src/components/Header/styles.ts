@@ -5,8 +5,10 @@ export const styles =  StyleSheet.create({
   container: {
     width: '100%',
     height: 100,
+    flexDirection: 'row',
     backgroundColor: theme.colors.primary,
-    justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
     paddingHorizontal: 30
@@ -22,5 +24,10 @@ export const styles =  StyleSheet.create({
     fontFamily: theme.fonts.text600,
     color: theme.colors.text,
     lineHeight: 24
+  },
+  settingsButton: {
+    padding: 8,
+    backgroundColor: theme.colors.primary,
+    borderRadius: 40
   }
 });
