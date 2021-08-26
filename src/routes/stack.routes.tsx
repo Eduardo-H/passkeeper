@@ -5,7 +5,8 @@ import { useAuth } from '../hooks/useAuth';
 import { Greetings } from '../screens/Greetings';
 import { Disclaimer } from '../screens/Disclaimer';
 import { UserRegister } from '../screens/UserRegister';
-import { Home } from '../screens/Home';
+
+import TabRoutes from './tab.routes';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -40,9 +41,9 @@ export function AppRoutes() {
 
       <Screen
         name="Home"
-        component={Home}
+        component={TabRoutes}
       />
-
+      
     </Navigator>
   );  
 }
