@@ -76,7 +76,7 @@ export function Home() {
   return (
     <>
       <StatusBar 
-        barStyle={"light-content"} 
+        barStyle={"dark-content"} 
         backgroundColor={theme.colors.primary}
         translucent
       />
@@ -95,7 +95,7 @@ export function Home() {
           </Text>
 
           <Text style={styles.count}>
-            Total of {filteredPasswords.length} passwords
+            Total {filteredPasswords.length}
           </Text>
         </View>
 
