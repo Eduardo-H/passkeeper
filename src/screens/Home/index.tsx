@@ -74,49 +74,46 @@ export function Home() {
   }
 
   return (
-    <>
+    <SafeAreaView style={styles.container}>
       <StatusBar 
         barStyle={"dark-content"} 
         backgroundColor={theme.colors.primary}
-        translucent
       />
 
-      <SafeAreaView style={styles.container}>
-        <Header />
+      <Header />
 
-        <CategoryList
-          categorySelected={categorySelected}
-          setCategorySelected={selectCategory}
-        />
+      <CategoryList
+        categorySelected={categorySelected}
+        setCategorySelected={selectCategory}
+      />
 
-        <View style={styles.info}>
-          <Text style={styles.title}>
-            Your Passwords
-          </Text>
+      <View style={styles.info}>
+        <Text style={styles.title}>
+          Your Passwords
+        </Text>
 
-          <Text style={styles.count}>
-            Total {filteredPasswords.length}
-          </Text>
-        </View>
+        <Text style={styles.count}>
+          Total {filteredPasswords.length}
+        </Text>
+      </View>
 
-        {
-          filteredPasswords.length > 0 
-          ? (
-            <PasswordList 
-              passwords={filteredPasswords} 
-              selectPassword={selectPassword} 
-            />
-          ) : (
-            <View style={styles.empty}>
-              <EmptySvg width={200} height={120} />
+      {
+        filteredPasswords.length > 0 
+        ? (
+          <PasswordList 
+            passwords={filteredPasswords} 
+            selectPassword={selectPassword} 
+          />
+        ) : (
+          <View style={styles.empty}>
+            <EmptySvg width={200} height={120} />
 
-              <Text style={styles.emptyText}>
-                No data found
-              </Text>
-            </View>
-          )
-        }
-      </SafeAreaView>
-    </>
+            <Text style={styles.emptyText}>
+              No data found
+            </Text>
+          </View>
+        )
+      }
+    </SafeAreaView>
   );
 }

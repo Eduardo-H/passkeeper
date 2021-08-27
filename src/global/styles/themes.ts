@@ -7,6 +7,7 @@ interface ColorProps {
   text: string;
   input: string;
   white: string;
+  invalid: string;
 }
 
 const colorScheme = Appearance.getColorScheme();
@@ -20,7 +21,8 @@ if (colorScheme === 'light') {
     background: '#FBFBFB',
     text: '#2C2C2C',
     input: '#FFFFFF',
-    white: '#FFFFFF'
+    white: '#FFFFFF',
+    invalid: '#FF3F3F'
   };
 } else {
   colors = {
@@ -29,7 +31,8 @@ if (colorScheme === 'light') {
     background: '#262D3B',
     text: '#FFFFFF',
     input: '#2A3650',
-    white: '#FFFFFF'
+    white: '#FFFFFF',
+    invalid: '#FF3F3F'
   };
 }
 

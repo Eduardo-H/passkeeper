@@ -5,6 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import { Home } from '../screens/Home';
 
 import { theme } from '../global/styles/themes';
+import { NewPassword } from '../screens/NewPassword';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -43,7 +44,7 @@ export default function TabRoutes() {
 
       <Screen
         name="NewPassword"
-        component={Home}
+        component={NewPassword}
         options={{
           title: 'New Password',
           tabBarIcon: (({ size, color }) => (

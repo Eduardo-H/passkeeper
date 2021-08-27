@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { 
   Poppins_400Regular, 
   Poppins_500Medium, 
@@ -23,16 +24,10 @@ export default function App() {
   }
 
   return (
-    <>
-      <StatusBar 
-        barStyle={"dark-content"} 
-        backgroundColor="transparent"
-        translucent
-      />
-
+    <SafeAreaProvider>
       <AuthProvider>
         <Routes />
       </AuthProvider>
-    </>
+    </SafeAreaProvider>
   );
 }
