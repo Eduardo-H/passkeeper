@@ -23,5 +23,16 @@ export const styles = StyleSheet.create({
     fontSize: 13,
     fontFamily: theme.fonts.text400,
     color: theme.colors.text
+  },
+  empty: {
+    alignItems: 'center',
+    marginTop: 30
+  },
+  emptyText: {
+    fontSize: 16,
+    fontFamily: theme.fonts.text500,
+    color: theme.colors.text,
+    textAlign: 'center',
+    marginTop: 10
   }
 });

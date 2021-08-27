@@ -28,7 +28,7 @@ export function CategoryList({
         style={styles.list}
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ paddingRight: 50 }}
+        contentContainerStyle={{ paddingRight: 60 }}
       >
         {
           categories.map(category => (
