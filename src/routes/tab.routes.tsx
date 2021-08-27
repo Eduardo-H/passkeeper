@@ -1,5 +1,4 @@
 import React from 'react';
-import { Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather } from '@expo/vector-icons';
 
@@ -17,9 +16,14 @@ export default function TabRoutes() {
         tabBarActiveTintColor: theme.colors.text,
         tabBarInactiveTintColor: theme.colors.text,
         tabBarStyle: {
-          paddingVertical: Platform.OS === 'ios' ? 20 : 0,
-          height: Platform.OS === 'ios' ? 84 : 75
-        }
+          paddingTop: 13,
+          paddingBottom: 13,
+          height: 75
+        },
+        tabBarLabelStyle: {
+          fontFamily: theme.fonts.text400,
+          color: theme.colors.text
+        },
       }}
     >
       <Screen
