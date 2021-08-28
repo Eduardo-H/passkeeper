@@ -7,6 +7,7 @@ import { COLLECTION_PASSWORDS } from '../../configs/database';
 import { CategoryList } from '../../components/CategoryList';
 import { Header } from '../../components/Header';
 import { PasswordList } from '../../components/PasswordList';
+import { SkeletonList } from '../../components/SkeletonList';
 
 import EmptySvg from '../../assets/empty.svg';
 import { theme } from '../../global/styles/themes';
@@ -16,6 +17,7 @@ import { styles } from './styles';
 export function Home() {
   const [categorySelected, setCategorySelected] = useState('');
   const [passwords, setPasswords] = useState<Password[]>([]);
+  const [loading, setLoading] = useState(true);
 
   function selectCategory(category: string) {
     const selectedCategory = category === categorySelected
@@ -38,6 +40,8 @@ export function Home() {
     })
 
     setPasswords(storage);
+
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -69,20 +73,24 @@ export function Home() {
       </View>
 
       {
-        passwords.length > 0 
-        ? (
-          <PasswordList 
-            passwords={passwords} 
-            selectPassword={selectPassword} 
-          />
+        loading ? (
+          <SkeletonList />
         ) : (
-          <View style={styles.empty}>
-            <EmptySvg width={200} height={120} />
-
-            <Text style={styles.emptyText}>
-              No data found
-            </Text>
-          </View>
+          passwords.length > 0 
+          ? (
+            <PasswordList 
+              passwords={passwords} 
+              selectPassword={selectPassword} 
+            />
+          ) : (
+            <View style={styles.empty}>
+              <EmptySvg width={200} height={120} />
+  
+              <Text style={styles.emptyText}>
+                No data found
+              </Text>
+            </View>
+          )
         )
       }
     </SafeAreaView>
