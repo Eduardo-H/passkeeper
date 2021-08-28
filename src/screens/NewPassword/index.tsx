@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
-
-import { Keyboard, StatusBar, Text, ToastAndroid, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import 'react-native-get-random-values';
+import { 
+  Keyboard, 
+  StatusBar, 
+  Text, 
+  ToastAndroid, 
+  View 
+} from 'react-native';
 import { 
   BorderlessButton, 
   ScrollView, 
   TouchableWithoutFeedback 
 } from 'react-native-gesture-handler';
-import 'react-native-get-random-values';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 import { v4 as uuid } from 'uuid';
 import * as SecureStore from 'expo-secure-store';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { AntDesign } from '@expo/vector-icons';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';

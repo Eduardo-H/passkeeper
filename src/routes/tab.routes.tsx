@@ -12,20 +12,19 @@ const { Navigator, Screen } = createBottomTabNavigator();
 export default function TabRoutes() {
   return (
     <Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarActiveTintColor: theme.colors.text,
-        tabBarInactiveTintColor: theme.colors.text,
-        tabBarStyle: {
+      tabBarOptions={{
+        activeTintColor: theme.colors.text,
+        inactiveTintColor: theme.colors.text,
+        style: {
           paddingTop: 13,
           paddingBottom: 13,
           height: 75
         },
-        tabBarLabelStyle: {
+        labelStyle: {
           fontFamily: theme.fonts.text400,
           color: theme.colors.text
-        },
-      }}
+        }
+      }}      
     >
       <Screen
         name="MyPasswords"

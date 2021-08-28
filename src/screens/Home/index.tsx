@@ -16,8 +16,23 @@ import { styles } from './styles';
 
 export function Home() {
   const [categorySelected, setCategorySelected] = useState('');
+  const [filteredPasswords, setFilteredPasswords] = useState<Password[]>([]);
   const [passwords, setPasswords] = useState<Password[]>([]);
   const [loading, setLoading] = useState(true);
+
+  async function loadPasswords() {
+    const response = await AsyncStorage.getItem(COLLECTION_PASSWORDS);
+    const storage: Password[] = response ? JSON.parse(response) : [];
+
+    for (const item of storage) {
+      item.password = await SecureStore.getItemAsync(item.passwordKey);
+    }
+
+    setPasswords(storage);
+    setFilteredPasswords(storage);
+
+    setLoading(false);
+  }
 
   function selectCategory(category: string) {
     const selectedCategory = category === categorySelected
@@ -25,23 +40,19 @@ export function Home() {
       : category;
 
     setCategorySelected(selectedCategory);
+
+    if (selectedCategory === '')
+      return setFilteredPasswords(passwords);
+
+    const filtered = passwords.filter(
+      password => password.categoryId === category
+    );
+
+    setFilteredPasswords(filtered);
   }
 
   function selectPassword(id: string) {
 
-  }
-
-  async function loadPasswords() {
-    const response = await AsyncStorage.getItem(COLLECTION_PASSWORDS);
-    const storage: Password[] = response ? JSON.parse(response) : [];
-
-    storage.forEach(async item => {
-      item.password = await SecureStore.getItemAsync(item.passwordKey);
-    })
-
-    setPasswords(storage);
-
-    setLoading(false);
   }
 
   useEffect(() => {
@@ -68,7 +79,7 @@ export function Home() {
         </Text>
 
         <Text style={styles.count}>
-          Total {passwords.length}
+          Total {filteredPasswords.length}
         </Text>
       </View>
 
@@ -76,10 +87,10 @@ export function Home() {
         loading ? (
           <SkeletonList />
         ) : (
-          passwords.length > 0 
+          filteredPasswords.length > 0 
           ? (
             <PasswordList 
-              passwords={passwords} 
+              passwords={filteredPasswords} 
               selectPassword={selectPassword} 
             />
           ) : (
