@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: getStatusBarHeight() + 30,
     paddingBottom: 30,
+    backgroundColor: theme.colors.background
   },
   title: {
     fontSize: 24,
@@ -33,12 +34,14 @@ export const styles = StyleSheet.create({
   input: {
     height: 56,
     paddingHorizontal: 15,
-    borderRadius: 8,
-    backgroundColor: theme.colors.white,
+    backgroundColor: theme.colors.input,
     fontSize: 17,
     fontFamily: theme.fonts.text400,
     color: theme.colors.text,
     textAlign: 'center',
-    textDecorationColor: theme.colors.text
+    textDecorationColor: theme.colors.text,
+    borderWidth: 1,
+    borderColor: theme.colors.secondary,
+    borderRadius: 8
   }
 });
