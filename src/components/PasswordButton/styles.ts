@@ -26,11 +26,6 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.text400,
     color: theme.colors.text
   },
-  dots: {
-    fontSize: 17,
-    fontFamily: theme.fonts.text400,
-    color: theme.colors.text,
-  },
   visibility: {
     padding: 8,
     backgroundColor: theme.colors.secondary,

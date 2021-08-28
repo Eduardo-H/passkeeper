@@ -3,9 +3,10 @@ import { View, Text } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 
+import { Dots } from '../Dots';
+
 import { theme } from '../../global/styles/themes';
 import { styles } from './styles';
-import { TextInput } from 'react-native-gesture-handler';
 
 interface PasswordCardProps extends RectButtonProps {
   password: Password;
@@ -24,16 +25,18 @@ export function PasswordButton({ password, ...rest }: PasswordCardProps) {
           {password.title}
         </Text>
 
-        <TextInput 
-          style={ 
-            hidePassword 
-            ? styles.dots
-            : styles.password
-          }
-          value={password.password}
-          editable={false}
-          secureTextEntry={hidePassword}
-        />
+        {
+          hidePassword 
+          ? (
+            <Dots 
+              quantity={password.password.length} 
+            />
+          ) : (
+            <Text style={styles.password}>
+              {password.password}
+            </Text>
+          )
+        }
       </View>
 
       <RectButton 
