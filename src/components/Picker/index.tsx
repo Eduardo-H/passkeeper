@@ -30,20 +30,19 @@ export function Picker({ selectedCategory, onSelect }: PickerProps) {
       <View style={styles.container}>
         <Text style={styles.label}>Category</Text>
 
-        <RectButton 
-          style={styles.input}
-          onPress={toggleModal}
-        >
-          <Text style={styles.label}>
-            { selectedCategory.title }
-          </Text>
+        <RectButton onPress={toggleModal}>
+          <View style={styles.input}>
+            <Text style={styles.label}>
+              { selectedCategory.title }
+            </Text>
 
-          <View>
-            <Feather 
-              name="arrow-down" 
-              size={24} 
-              color="gray" 
-            />
+            <View>
+              <Feather 
+                name="arrow-down" 
+                size={24} 
+                color="gray" 
+              />
+            </View>
           </View>
         </RectButton>
       </View>
