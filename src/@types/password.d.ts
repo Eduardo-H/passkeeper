@@ -1,7 +1,8 @@
 type Password = {
   id?: string;
   title: string;
-  password: string;
+  passwordKey: string;
+  password?: string;
   categoryId: string;
   createdAt: Date;
 }

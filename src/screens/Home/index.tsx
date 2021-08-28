@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SafeAreaView, StatusBar, View, Text } from 'react-native';
+import * as SecureStore from 'expo-secure-store';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { COLLECTION_PASSWORDS } from '../../configs/database';
 import { CategoryList } from '../../components/CategoryList';
 import { Header } from '../../components/Header';
 import { PasswordList } from '../../components/PasswordList';
@@ -10,47 +13,9 @@ import { theme } from '../../global/styles/themes';
 
 import { styles } from './styles';
 
-const passwords: Password[] = [
-  { 
-    id: '1', 
-    title: 'Youtube', 
-    password: 'strong_password', 
-    categoryId: '4',
-    createdAt: new Date()
-  },
-  { 
-    id: '2', 
-    title: 'Rocketseat', 
-    password: 'ignite_eh_foda', 
-    categoryId: '1',
-    createdAt: new Date()
-  },
-  { 
-    id: '3', 
-    title: 'Twitch', 
-    password: 'ignite_eh_foda', 
-    categoryId: '1',
-    createdAt: new Date()
-  },
-  { 
-    id: '4', 
-    title: 'Outlook', 
-    password: 'ignite_eh_foda', 
-    categoryId: '1',
-    createdAt: new Date()
-  },
-  { 
-    id: '5', 
-    title: 'Gmail', 
-    password: 'ignite_eh_foda', 
-    categoryId: '2',
-    createdAt: new Date()
-  }
-];
-
 export function Home() {
   const [categorySelected, setCategorySelected] = useState('');
-  const [filteredPasswords, setFilteredPasswords] = useState<Password[]>(passwords);
+  const [passwords, setPasswords] = useState<Password[]>([]);
 
   function selectCategory(category: string) {
     const selectedCategory = category === categorySelected
@@ -58,20 +23,26 @@ export function Home() {
       : category;
 
     setCategorySelected(selectedCategory);
-
-    if (selectedCategory === '')
-      return setFilteredPasswords(passwords);
-
-    const filtered = passwords.filter(
-      password => password.categoryId === category
-    );
-
-    setFilteredPasswords(filtered);
   }
 
   function selectPassword(id: string) {
 
   }
+
+  async function loadPasswords() {
+    const response = await AsyncStorage.getItem(COLLECTION_PASSWORDS);
+    const storage: Password[] = response ? JSON.parse(response) : [];
+
+    storage.forEach(async item => {
+      item.password = await SecureStore.getItemAsync(item.passwordKey);
+    })
+
+    setPasswords(storage);
+  }
+
+  useEffect(() => {
+    loadPasswords();
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -93,15 +64,15 @@ export function Home() {
         </Text>
 
         <Text style={styles.count}>
-          Total {filteredPasswords.length}
+          Total {passwords.length}
         </Text>
       </View>
 
       {
-        filteredPasswords.length > 0 
+        passwords.length > 0 
         ? (
           <PasswordList 
-            passwords={filteredPasswords} 
+            passwords={passwords} 
             selectPassword={selectPassword} 
           />
         ) : (

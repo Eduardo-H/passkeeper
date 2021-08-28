@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { Keyboard, StatusBar, Text, View } from 'react-native';
+
+import { Keyboard, StatusBar, Text, ToastAndroid, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { 
   BorderlessButton, 
   ScrollView, 
   TouchableWithoutFeedback 
 } from 'react-native-gesture-handler';
+import 'react-native-get-random-values';
+import { v4 as uuid } from 'uuid';
+import * as SecureStore from 'expo-secure-store';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -64,22 +68,31 @@ export function NewPassword() {
       return;
     }
 
+    const passwordKey = uuid();
+
+    try {
+      await SecureStore.setItemAsync(passwordKey, password);
+    } catch (err) {
+      ToastAndroid.show('Unable to save the password', ToastAndroid.SHORT);
+    }    
+
     const newPassword: Password = {
+      id: uuid(),
       title,
-      password,
+      passwordKey,
       categoryId: category.id,
       createdAt: new Date()
     }
 
     try {
       const data = await AsyncStorage.getItem(COLLECTION_PASSWORDS);
-      const oldPasswords = data ? (JSON.parse(data) as Password) : {};
+      const oldPasswords = data ? JSON.parse(data) : [];
 
       await AsyncStorage.setItem(COLLECTION_PASSWORDS,
-        JSON.stringify({
-          ...newPassword,
-          ...oldPasswords
-        })
+        JSON.stringify([
+          ...oldPasswords,
+          newPassword
+        ])
       );
 
       clearFields();
