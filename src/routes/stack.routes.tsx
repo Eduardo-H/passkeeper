@@ -43,6 +43,11 @@ export function AppRoutes() {
         name="Home"
         component={TabRoutes}
       />
+
+      <Screen
+        name="NewPassword"
+        component={TabRoutes}
+      />
       
     </Navigator>
   );  
