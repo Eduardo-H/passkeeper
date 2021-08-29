@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, StatusBar, View, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { useIsFocused } from '@react-navigation/native';
 import * as SecureStore from 'expo-secure-store';
 
@@ -16,6 +17,8 @@ import { theme } from '../../global/styles/themes';
 import { styles } from './styles';
 
 export function Home() {
+  const navigation = useNavigation();
+
   const [categorySelected, setCategorySelected] = useState('');
   const [filteredPasswords, setFilteredPasswords] = useState<Password[]>([]);
   const [passwords, setPasswords] = useState<Password[]>([]);
@@ -54,8 +57,8 @@ export function Home() {
     setFilteredPasswords(filtered);
   }
 
-  function selectPassword(id: string) {
-
+  function selectPassword(password: Password) {
+    navigation.navigate('PasswordDetails', { password });
   }
 
   useEffect(() => {

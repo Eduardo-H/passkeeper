@@ -7,6 +7,7 @@ import { Disclaimer } from '../screens/Disclaimer';
 import { UserRegister } from '../screens/UserRegister';
 
 import TabRoutes from './tab.routes';
+import { PasswordDetails } from '../screens/PasswordDetails';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -15,6 +16,7 @@ export function AppRoutes() {
 
   return (
     <Navigator
+      headerMode="none"
       screenOptions={{
         headerShown: false,
         cardStyle: {
@@ -47,6 +49,11 @@ export function AppRoutes() {
       <Screen
         name="NewPassword"
         component={TabRoutes}
+      />
+
+      <Screen
+        name="PasswordDetails"
+        component={PasswordDetails}
       />
       
     </Navigator>

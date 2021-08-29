@@ -5,7 +5,7 @@ import { styles } from './styles';
 
 interface PasswordListProps {
   passwords: Array<Password>;
-  selectPassword: (id: string) => void;
+  selectPassword: (password: Password) => void;
 }
 
 export function PasswordList({ passwords, selectPassword }: PasswordListProps) {
@@ -16,7 +16,7 @@ export function PasswordList({ passwords, selectPassword }: PasswordListProps) {
       renderItem={({ item }) => (
         <PasswordButton
           password={item}
-          onPress={() => selectPassword(item.id)}
+          onPress={() => selectPassword(item)}
         />
       )}
       contentContainerStyle={{ paddingBottom: 20 }}
