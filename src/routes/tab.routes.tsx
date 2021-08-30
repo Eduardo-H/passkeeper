@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Feather } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { Home } from '../screens/Home';
 
@@ -31,24 +31,25 @@ export default function TabRoutes() {
         component={Home}
         options={{
           title: 'My Passwords',
-          tabBarIcon: (({ size, color }) => (
-            <Feather 
-              name="lock" 
+          tabBarIcon: (({ focused, size, color }) => (
+            <MaterialCommunityIcons 
+              name={ focused ? "lock" : "lock-outline" } 
               size={size} 
               color={color} 
             />
-          ))
+          )),
         }}
       />
 
       <Screen
         name="NewPassword"
         component={NewPassword}
+        initialParams={{ currentPassword: null }}
         options={{
           title: 'New Password',
-          tabBarIcon: (({ size, color }) => (
-            <Feather 
-              name="plus-circle" 
+          tabBarIcon: (({ focused, size, color }) => (
+            <MaterialCommunityIcons 
+              name={ focused ? "plus-circle" : "plus-circle-outline" }
               size={size} 
               color={color} 
             />

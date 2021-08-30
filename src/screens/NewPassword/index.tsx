@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'react-native-get-random-values';
 import { 
   Keyboard, 
@@ -13,7 +13,7 @@ import {
   TouchableWithoutFeedback 
 } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute, useIsFocused } from '@react-navigation/native';
 import { v4 as uuid } from 'uuid';
 import * as SecureStore from 'expo-secure-store';
 import { AntDesign } from '@expo/vector-icons';
@@ -28,6 +28,10 @@ import { categories } from '../../utils/categories';
 import { theme } from '../../global/styles/themes';
 import { styles } from './styles';
 
+interface Params {
+  currentPassword?: Password;
+}
+
 export function NewPassword() {
   const [title, setTitle] = useState('');
   const [password, setPassword] = useState('');
@@ -37,6 +41,9 @@ export function NewPassword() {
   const [isPasswordInputInvalid, setIsPasswordInputInvalid] = useState(false);
 
   const navigation = useNavigation();
+  const isFocused = useIsFocused();
+  const route = useRoute();
+  const { currentPassword } = route?.params as Params;
 
   function handleGoBack() {
     navigation.goBack();
@@ -73,40 +80,70 @@ export function NewPassword() {
       return;
     }
 
-    const passwordKey = uuid();
+    const passwordKey = currentPassword?.passwordKey || uuid();
 
+    // Encrypting and saving the password
     try {
       await SecureStore.setItemAsync(passwordKey, password);
     } catch (err) {
       ToastAndroid.show('Unable to save the password', ToastAndroid.SHORT);
     }    
 
-    const newPassword: Password = {
-      id: uuid(),
-      title,
-      passwordKey,
-      categoryId: category.id,
-      createdAt: new Date()
+    // Fetching existent data
+    const data = await AsyncStorage.getItem(COLLECTION_PASSWORDS);
+    const oldPasswords = data ? JSON.parse(data) : [];
+
+    let updatedPasswords: string;
+
+    // Creating a new object or updating the existent one
+    if (currentPassword) {
+      const existentPassword = oldPasswords.find(item => item.id === currentPassword.id);
+
+      Object.assign(existentPassword, {
+        title,
+        categoryId: category.id
+      });
+
+      updatedPasswords = JSON.stringify([
+        ...oldPasswords
+      ]);
+    } else {
+      const newPassword: Password = {
+        id: uuid(),
+        title,
+        passwordKey,
+        categoryId: category.id,
+        createdAt: new Date(),
+      }
+
+      updatedPasswords = JSON.stringify([
+        ...oldPasswords,
+        newPassword
+      ]);
     }
 
     try {
-      const data = await AsyncStorage.getItem(COLLECTION_PASSWORDS);
-      const oldPasswords = data ? JSON.parse(data) : [];
-
-      await AsyncStorage.setItem(COLLECTION_PASSWORDS,
-        JSON.stringify([
-          ...oldPasswords,
-          newPassword
-        ])
-      );
+      await AsyncStorage.setItem(COLLECTION_PASSWORDS, updatedPasswords);
 
       clearFields();
 
       navigation.navigate('MyPasswords');
     } catch (err) {
       throw new Error(err);
-    }    
+    }
   }
+
+  useEffect(() => {
+    if (isFocused) {
+      if (currentPassword) {
+        setTitle(currentPassword.title);
+        setPassword(currentPassword.password);
+        setCategory(categories.find(item => item.id === currentPassword.categoryId));
+      } else {
+        clearFields();
+      }
+    }
+  }, [isFocused]);
 
   return (
     <SafeAreaView style={styles.container}>
