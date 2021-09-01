@@ -5,24 +5,28 @@ interface ColorProps {
   secondary: string;
   background: string;
   text: string;
+  label: string;
   input: string;
   white: string;
   invalid: string;
+  tabBackground: string;
 }
 
 const colorScheme = Appearance.getColorScheme();
 
 let colors = {} as ColorProps;
 
-if (colorScheme === 'light') {
+if (colorScheme !== 'light') {
   colors = {
     primary: '#44EE9D',
     secondary: '#F3F3F3',
     background: '#FBFBFB',
     text: '#2C2C2C',
+    label: '#737373',
     input: '#FFFFFF',
     white: '#FFFFFF',
-    invalid: '#FF3F3F'
+    invalid: '#FF3F3F',
+    tabBackground: '#FFFFFF'
   };
 } else {
   colors = {
@@ -30,9 +34,11 @@ if (colorScheme === 'light') {
     secondary: '#2A3650',
     background: '#262D3B',
     text: '#FFFFFF',
+    label: '#CCCCCC',
     input: '#2A3650',
     white: '#FFFFFF',
-    invalid: '#FF3F3F'
+    invalid: '#FF3F3F',
+    tabBackground: '#1F2531'
   };
 }
 

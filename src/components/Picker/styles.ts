@@ -9,6 +9,11 @@ export const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     fontFamily: theme.fonts.text400,
+    color: theme.colors.label
+  },
+  text: {
+    fontSize: 16,
+    fontFamily: theme.fonts.text400,
     color: theme.colors.text
   },
   input: {
@@ -17,7 +22,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 15,
-    backgroundColor: theme.colors.white,
+    backgroundColor: theme.colors.input,
     borderWidth: 1,
     borderRadius: 8,
     borderColor: theme.colors.secondary    

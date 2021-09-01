@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     fontFamily: theme.fonts.text400,
-    color: theme.colors.text
+    color: theme.colors.label
   },
   input: {
     height: 56,
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.text400,
     color: theme.colors.text,
     textDecorationColor: theme.colors.text,
-    backgroundColor: theme.colors.white,
+    backgroundColor: theme.colors.input,
     borderWidth: 1,
     borderRadius: 8,
     borderColor: theme.colors.secondary

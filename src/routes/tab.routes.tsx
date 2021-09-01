@@ -16,9 +16,11 @@ export default function TabRoutes() {
         activeTintColor: theme.colors.text,
         inactiveTintColor: theme.colors.text,
         style: {
+          height: 75,
           paddingTop: 13,
           paddingBottom: 13,
-          height: 75
+          backgroundColor: theme.colors.tabBackground,
+          borderTopColor: theme.colors.tabBackground
         },
         labelStyle: {
           fontFamily: theme.fonts.text400,

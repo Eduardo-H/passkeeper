@@ -32,7 +32,7 @@ export function Picker({ selectedCategory, onSelect }: PickerProps) {
 
         <RectButton onPress={toggleModal}>
           <View style={styles.input}>
-            <Text style={styles.label}>
+            <Text style={styles.text}>
               { selectedCategory.title }
             </Text>
 
