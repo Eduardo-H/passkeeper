@@ -51,7 +51,7 @@ export default function TabRoutes() {
             <MaterialCommunityIcons 
               name={ focused ? "plus-circle" : "plus-circle-outline" }
               size={size} 
-              color={color} 
+              color={color}
             />
           ))
         }}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, StatusBar, View, Text } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { useIsFocused } from '@react-navigation/native';
+import { useNavigation, useIsFocused } from '@react-navigation/native';
 import * as SecureStore from 'expo-secure-store';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -18,13 +17,12 @@ import { styles } from './styles';
 
 export function Home() {
   const navigation = useNavigation();
+  const isFocused = useIsFocused();
 
   const [categorySelected, setCategorySelected] = useState('');
   const [filteredPasswords, setFilteredPasswords] = useState<Password[]>([]);
   const [passwords, setPasswords] = useState<Password[]>([]);
   const [loading, setLoading] = useState(true);
-
-  const isFocused = useIsFocused();
 
   async function loadPasswords() {
     const response = await AsyncStorage.getItem(COLLECTION_PASSWORDS);

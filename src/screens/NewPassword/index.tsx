@@ -134,14 +134,13 @@ export function NewPassword() {
   }
 
   useEffect(() => {
-    if (isFocused) {
-      if (currentPassword) {
-        setTitle(currentPassword.title);
-        setPassword(currentPassword.password);
-        setCategory(categories.find(item => item.id === currentPassword.categoryId));
-      } else {
-        clearFields();
-      }
+    if (isFocused && currentPassword) {
+      setTitle(currentPassword.title);
+      setPassword(currentPassword.password);
+      setCategory(categories.find(item => item.id === currentPassword.categoryId));
+    } else {
+      clearFields();
+      navigation.setParams({ currentPassword: null });
     }
   }, [isFocused]);
 
