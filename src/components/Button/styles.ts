@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontFamily: theme.fonts.text500,
-    color: theme.colors.text,
+    color: theme.colors.contrastText,
     lineHeight: 25
   }
 });

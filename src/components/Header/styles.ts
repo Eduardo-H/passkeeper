@@ -16,13 +16,13 @@ export const styles =  StyleSheet.create({
   greeting: {
     fontSize: 18,
     fontFamily: theme.fonts.text400,
-    color: theme.colors.text,
+    color: theme.colors.contrastText,
     lineHeight: 28
   },
   username: {
     fontSize: 22,
     fontFamily: theme.fonts.text600,
-    color: theme.colors.text,
+    color: theme.colors.contrastText,
     lineHeight: 24
   },
   settingsButton: {

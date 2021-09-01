@@ -120,7 +120,7 @@ export function PasswordDetails() {
             style={[styles.button, styles.updateButton]}
             onPress={handleUpdate}
           >
-            <Text style={[styles.buttonText, { color: theme.colors.text }]}>
+            <Text style={[styles.buttonText, { color: theme.colors.contrastText }]}>
               Update
             </Text>
           </RectButton>

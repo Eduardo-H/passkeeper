@@ -35,7 +35,7 @@ export function Header() {
         <MaterialCommunityIcons 
           name="cog-outline" 
           size={24} 
-          color={theme.colors.text} 
+          color={theme.colors.contrastText} 
         />
       </RectButton>
     </View>

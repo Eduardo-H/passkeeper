@@ -5,6 +5,7 @@ interface ColorProps {
   secondary: string;
   background: string;
   text: string;
+  contrastText: string;
   label: string;
   input: string;
   white: string;
@@ -16,12 +17,13 @@ const colorScheme = Appearance.getColorScheme();
 
 let colors = {} as ColorProps;
 
-if (colorScheme !== 'light') {
+if (colorScheme === 'light') {
   colors = {
     primary: '#44EE9D',
     secondary: '#F3F3F3',
     background: '#FBFBFB',
     text: '#2C2C2C',
+    contrastText: '#2C2C2C',
     label: '#737373',
     input: '#FFFFFF',
     white: '#FFFFFF',
@@ -34,6 +36,7 @@ if (colorScheme !== 'light') {
     secondary: '#2A3650',
     background: '#262D3B',
     text: '#FFFFFF',
+    contrastText: '#2C2C2C',
     label: '#CCCCCC',
     input: '#2A3650',
     white: '#FFFFFF',
