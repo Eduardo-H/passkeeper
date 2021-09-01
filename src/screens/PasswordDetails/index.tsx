@@ -39,11 +39,11 @@ export function PasswordDetails() {
     const data = await AsyncStorage.getItem(COLLECTION_PASSWORDS);
     const passwords = data ? (JSON.parse(data) as Password[]) : [];
 
-    const passwordIndex = passwords.findIndex(item => item.id === id);
+    const index = passwords.findIndex(item => item.id === id);
 
-    const updatedPasswords = passwords.slice(passwordIndex, 1);
+    passwords.splice(index, 1);
 
-    await AsyncStorage.setItem(COLLECTION_PASSWORDS, JSON.stringify(updatedPasswords));
+    await AsyncStorage.setItem(COLLECTION_PASSWORDS, JSON.stringify(passwords));
   }
 
   function handleDelete() {
