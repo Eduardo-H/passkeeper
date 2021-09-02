@@ -1,17 +1,19 @@
 import { StyleSheet } from 'react-native';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { theme } from '../../global/styles/themes';
 
 export const styles =  StyleSheet.create({
   container: {
     width: '100%',
-    height: 100,
+    height: 120,
     flexDirection: 'row',
     backgroundColor: theme.colors.primary,
     alignItems: 'center',
     justifyContent: 'space-between',
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
-    paddingHorizontal: 30
+    paddingHorizontal: 30,
+    paddingTop: getStatusBarHeight()
   },
   greeting: {
     fontSize: 18,

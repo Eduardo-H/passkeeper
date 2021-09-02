@@ -26,6 +26,13 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <AuthProvider>
+        <StatusBar 
+          animated
+          barStyle={"dark-content"} 
+          backgroundColor="transparent"
+          translucent
+        />
+
         <Routes />
       </AuthProvider>
     </SafeAreaProvider>

@@ -147,11 +147,6 @@ export function NewPassword() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar 
-        barStyle={"dark-content"} 
-        backgroundColor={theme.colors.background}
-      />
-
       <ScrollView>
         <TouchableWithoutFeedback 
           onPress={Keyboard.dismiss}
