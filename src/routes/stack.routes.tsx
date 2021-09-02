@@ -8,6 +8,7 @@ import { UserRegister } from '../screens/UserRegister';
 
 import TabRoutes from './tab.routes';
 import { PasswordDetails } from '../screens/PasswordDetails';
+import { Settings } from '../screens/Settings';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -54,6 +55,11 @@ export function AppRoutes() {
       <Screen
         name="PasswordDetails"
         component={PasswordDetails}
+      />
+
+      <Screen
+        name="Settings"
+        component={Settings}
       />
       
     </Navigator>

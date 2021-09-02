@@ -14,7 +14,7 @@ export function Header() {
   const { user } = useAuth();
 
   function handleOpenSettingsScreen() {
-    // navigation.navigate('Settings');
+    navigation.navigate('Settings');
   }
 
   return (
