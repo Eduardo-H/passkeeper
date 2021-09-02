@@ -9,6 +9,7 @@ import { UserRegister } from '../screens/UserRegister';
 import TabRoutes from './tab.routes';
 import { PasswordDetails } from '../screens/PasswordDetails';
 import { Settings } from '../screens/Settings';
+import { Authentication } from '../screens/Authentication';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -24,8 +25,13 @@ export function AppRoutes() {
           backgroundColor: 'transparent'
         }
       }}
-      initialRouteName={ user.username ? 'Home' : 'Greetings' }
+      initialRouteName={ user.username ? 'Authentication' : 'Greetings' }
     >
+
+      <Screen
+        name="Authentication"
+        component={Authentication}
+      />
       
       <Screen
         name="Greetings"

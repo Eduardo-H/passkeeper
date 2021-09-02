@@ -5,7 +5,6 @@ import React, {
   useState,
   useEffect
 } from 'react';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { COLLECTION_USERS } from '../configs/database';
@@ -54,7 +53,7 @@ function AuthProvider({ children }: AuthProviderProps) {
 
     setUser(updatedUser);
   }
-  
+
   useEffect(() => {
     loadUser();
   }, []);

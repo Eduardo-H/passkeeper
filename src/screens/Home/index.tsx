@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, StatusBar, View, Text } from 'react-native';
+import { SafeAreaView, View, Text } from 'react-native';
 import { useNavigation, useIsFocused } from '@react-navigation/native';
 import * as SecureStore from 'expo-secure-store';
 
@@ -11,7 +11,6 @@ import { PasswordList } from '../../components/PasswordList';
 import { SkeletonList } from '../../components/SkeletonList';
 
 import EmptySvg from '../../assets/empty.svg';
-import { theme } from '../../global/styles/themes';
 
 import { styles } from './styles';
 
