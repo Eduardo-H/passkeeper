@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.background
   },
   content: {
+    marginTop: 30,
     paddingHorizontal: 20
   },
   footer: {

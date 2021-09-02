@@ -154,12 +154,11 @@ export function NewPassword() {
 
       <ScrollView>
         <TouchableWithoutFeedback 
-          style={styles.content}
           onPress={Keyboard.dismiss}
         >
           <Header title="New Password" />
 
-          <View style={{ marginTop: 40 }}>
+          <View style={styles.content}>
             <Input 
               label="Title" 
               isInvalid={isTitleInputInvalid}
