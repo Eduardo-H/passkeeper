@@ -22,8 +22,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#44EE9D"
+      },
+      "package": "com.xunito.PassKeeper"
     },
     "web": {
       "favicon": "./assets/favicon.png"
