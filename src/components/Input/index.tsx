@@ -5,6 +5,7 @@ import {
   TextInputProps, 
   View 
 } from 'react-native';
+import { theme } from '../../global/styles/themes';
 
 import { styles } from './styles';
 
@@ -24,6 +25,7 @@ export function Input({ label, isInvalid, ...rest }: InputProps) {
           ? [styles.input, styles.invalid] 
           : styles.input
         }
+        selectionColor={theme.colors.text}
         {...rest}
       />
 
