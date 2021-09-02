@@ -10,19 +10,6 @@ export const styles = StyleSheet.create({
   content: {
     paddingHorizontal: 20
   },
-  header: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  title: {
-    flex: 1,
-    fontSize: 20,
-    fontFamily: theme.fonts.text400,
-    color: theme.colors.text,
-    textAlign: 'center'
-  },
   footer: {
     marginTop: 'auto', 
     paddingHorizontal: 20

@@ -11,6 +11,7 @@ import { theme } from '../../global/styles/themes';
 import { styles } from './styles';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
+import { Header } from '../../components/Header';
 
 export function Settings() {
   const { user, updateUser } = useAuth();
@@ -48,21 +49,7 @@ export function Settings() {
         onPress={Keyboard.dismiss}
         style={{ height: '100%' }}
       >
-        <View style={styles.header}>
-          <BorderlessButton onPress={handleGoBack}>
-            <AntDesign 
-              name="left" 
-              size={24} 
-              color={theme.colors.text} 
-            />
-          </BorderlessButton>
-
-          <Text style={styles.title}>
-            Settings
-          </Text>
-
-          <View style={{ width: 24 }} />
-        </View>
+        <Header title="Settings" />
 
         <View style={styles.content}>
           <Input

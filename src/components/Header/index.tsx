@@ -1,43 +1,38 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-
-import { useAuth } from '../../hooks/useAuth';
-
-import { styles } from './styles';
-import { theme } from '../../global/styles/themes';
+import { BorderlessButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { AntDesign } from '@expo/vector-icons';
 
-export function Header() {
+import { theme } from '../../global/styles/themes';
+import { styles } from './styles';
+
+interface HeaderProps {
+  title: string;
+}
+
+export function Header({ title }: HeaderProps) {
   const navigation = useNavigation();
-  const { user } = useAuth();
 
-  function handleOpenSettingsScreen() {
-    navigation.navigate('Settings');
-  }
+  function handleGoBack() {
+    navigation.goBack();
+  }  
 
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={styles.greeting}>
-          Welcome,
-        </Text>
-        <Text style={styles.username}>
-          { user.username }
-        </Text>
-      </View>
-
-      <RectButton
-        style={styles.settingsButton}
-        onPress={handleOpenSettingsScreen}
-      >
-        <MaterialCommunityIcons 
-          name="cog-outline" 
+      <BorderlessButton onPress={handleGoBack}>
+        <AntDesign 
+          name="left" 
           size={24} 
-          color={theme.colors.contrastText} 
+          color={theme.colors.text} 
         />
-      </RectButton>
+      </BorderlessButton>
+
+      <Text style={styles.title}>
+        { title }
+      </Text>
+
+      <View style={{ width: 24 }} />
     </View>
   );
 }

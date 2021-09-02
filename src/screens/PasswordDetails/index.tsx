@@ -11,6 +11,7 @@ import { categories } from '../../utils/categories';
 
 import { theme } from '../../global/styles/themes';
 import { styles } from './styles';
+import { Header } from '../../components/Header';
 
 interface Params {
   password: Password;
@@ -70,21 +71,7 @@ export function PasswordDetails() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <BorderlessButton onPress={handleGoBack}>
-          <AntDesign 
-            name="left" 
-            size={24} 
-            color={theme.colors.text} 
-          />
-        </BorderlessButton>
-
-        <Text style={styles.title}>
-          Details
-        </Text>
-
-        <View style={{ width: 24 }} />
-      </View>
+      <Header title="Details" />
 
       <View style={styles.card}>
         <View style={styles.infoGroup}>

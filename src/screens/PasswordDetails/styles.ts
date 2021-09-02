@@ -7,20 +7,6 @@ export const styles = StyleSheet.create({
     paddingVertical: 20,
     backgroundColor: theme.colors.background,
   },
-  header: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 20
-  },
-  title: {
-    flex: 1,
-    fontSize: 20,
-    fontFamily: theme.fonts.text400,
-    color: theme.colors.text,
-    textAlign: 'center'
-  },
   card: {
     width: 'auto',
     marginTop: 20,

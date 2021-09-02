@@ -27,6 +27,7 @@ import { categories } from '../../utils/categories';
 
 import { theme } from '../../global/styles/themes';
 import { styles } from './styles';
+import { Header } from '../../components/Header';
 
 interface Params {
   currentPassword?: Password;
@@ -156,21 +157,7 @@ export function NewPassword() {
           style={styles.content}
           onPress={Keyboard.dismiss}
         >
-          <View style={styles.header}>
-            <BorderlessButton onPress={handleGoBack}>
-              <AntDesign 
-                name="left" 
-                size={24} 
-                color={theme.colors.text} 
-              />
-            </BorderlessButton>
-
-            <Text style={styles.title}>
-              New Password
-            </Text>
-
-            <View style={{ width: 24 }} />
-          </View>
+          <Header title="New Password" />
 
           <View style={{ marginTop: 40 }}>
             <Input 

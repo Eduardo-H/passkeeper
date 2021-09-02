@@ -6,7 +6,7 @@ import * as SecureStore from 'expo-secure-store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { COLLECTION_PASSWORDS } from '../../configs/database';
 import { CategoryList } from '../../components/CategoryList';
-import { Header } from '../../components/Header';
+import { HomeHeader } from '../../components/HomeHeader';
 import { PasswordList } from '../../components/PasswordList';
 import { SkeletonList } from '../../components/SkeletonList';
 
@@ -75,7 +75,7 @@ export function Home() {
         backgroundColor={theme.colors.primary}
       />
 
-      <Header />
+      <HomeHeader />
 
       <CategoryList
         categorySelected={categorySelected}
