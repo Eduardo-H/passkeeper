@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: 110,
-    backgroundColor: theme.colors.secondary,
     marginBottom: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -18,17 +17,14 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontFamily: theme.fonts.text600,
-    color: theme.colors.text
+    fontFamily: theme.fonts.text600
   },
   password: {
     fontSize: 15,
-    fontFamily: theme.fonts.text400,
-    color: theme.colors.text
+    fontFamily: theme.fonts.text400
   },
   visibility: {
     padding: 8,
-    backgroundColor: theme.colors.secondary,
     borderRadius: 40
   }
 });

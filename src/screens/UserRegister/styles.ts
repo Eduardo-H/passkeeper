@@ -8,13 +8,11 @@ export const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 20,
     paddingTop: getStatusBarHeight() + 30,
-    paddingBottom: 30,
-    backgroundColor: theme.colors.background
+    paddingBottom: 30
   },
   title: {
     fontSize: 22,
-    fontFamily: theme.fonts.text600,
-    color: theme.colors.text
+    fontFamily: theme.fonts.text600
   },
   content: {
     height: '100%',
@@ -28,20 +26,16 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: theme.fonts.text400,
     textAlign: 'center',
-    color: theme.colors.text,
     marginBottom: 5
   },
   input: {
     height: 50,
     paddingHorizontal: 15,
-    backgroundColor: theme.colors.input,
     fontSize: 14,
     fontFamily: theme.fonts.text400,
     color: theme.colors.text,
     textAlign: 'center',
-    textDecorationColor: theme.colors.text,
     borderWidth: 1,
-    borderColor: theme.colors.secondary,
     borderRadius: 8
   }
 });

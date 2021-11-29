@@ -8,13 +8,11 @@ export const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    fontFamily: theme.fonts.text400,
-    color: theme.colors.label
+    fontFamily: theme.fonts.text400
   },
   text: {
     fontSize: 14,
-    fontFamily: theme.fonts.text400,
-    color: theme.colors.text
+    fontFamily: theme.fonts.text400
   },
   input: {
     height: 50,
@@ -22,9 +20,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 15,
-    backgroundColor: theme.colors.input,
     borderWidth: 1,
-    borderRadius: 8,
-    borderColor: theme.colors.secondary    
+    borderRadius: 8
   }
 });

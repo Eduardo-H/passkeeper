@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
   modalView: {
     width: '100%',
     height: '50%',
-    backgroundColor: theme.colors.background,
     borderRadius: 15,
     padding: 20,
     alignItems: "center",
@@ -20,7 +19,6 @@ export const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 18,
     fontFamily: theme.fonts.text500,
-    color: theme.colors.text,
     textAlign: "center"
   },
   list: {
@@ -33,7 +31,6 @@ export const styles = StyleSheet.create({
   },
   cancelButtonText: {
     fontSize: 14,
-    fontFamily: theme.fonts.text400,
-    color: theme.colors.text
+    fontFamily: theme.fonts.text400
   }
 });

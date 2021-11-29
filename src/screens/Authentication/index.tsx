@@ -10,10 +10,12 @@ import { useAuth } from '../../hooks/useAuth';
 import AuthenticationSvg from '../../assets/authentication.svg';
 
 import { styles } from './styles';
+import { useTheme } from '../../hooks/useTheme';
 
 export function Authentication() {
   const navigation = useNavigation();
   const { user } = useAuth();
+  const { theme } = useTheme();
 
   async function authenticate() {
     const response = await authenticateAsync({
@@ -26,13 +28,13 @@ export function Authentication() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
       <View style={styles.content}>
-        <Text style={styles.title}>
+        <Text style={[styles.title, { color: theme.text }]}>
           Welcome back {user.username.split(' ')[0]}!
         </Text>
 
-        <Text style={styles.subtitle}>
+        <Text style={[styles.subtitle, { color: theme.text }]}>
           Authenticate yourself to use the app.
         </Text>
 

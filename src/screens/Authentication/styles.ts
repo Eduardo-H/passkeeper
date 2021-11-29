@@ -5,8 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingVertical: 30,
-    paddingHorizontal: 20,
-    backgroundColor: theme.colors.background
+    paddingHorizontal: 20
   },
   content: {
     flex: 1,
@@ -16,13 +15,11 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontFamily: theme.fonts.text600,
-    color: theme.colors.text,
     textAlign: 'center'
   },
   subtitle: {
     fontSize: 14,
     fontFamily: theme.fonts.text400,
-    color: theme.colors.text,
     textAlign: 'center'
   },
   illustration: {

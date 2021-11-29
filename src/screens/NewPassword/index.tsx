@@ -25,15 +25,17 @@ import { Button } from '../../components/Button';
 import { Picker } from '../../components/Picker';
 import { categories } from '../../utils/categories';
 
-import { theme } from '../../global/styles/themes';
 import { styles } from './styles';
 import { Header } from '../../components/Header';
+import { useTheme } from '../../hooks/useTheme';
 
 interface Params {
   currentPassword?: Password;
 }
 
 export function NewPassword() {
+  const { theme } = useTheme();
+
   const [title, setTitle] = useState('');
   const [password, setPassword] = useState('');
   const [category, setCategory] = useState<Category>(categories[0]);
@@ -45,10 +47,6 @@ export function NewPassword() {
   const isFocused = useIsFocused();
   const route = useRoute();
   const { currentPassword } = route?.params as Params;
-
-  function handleGoBack() {
-    navigation.goBack();
-  }
 
   function checkFormInvalid(): boolean {
     let isInvalid = false;
@@ -146,7 +144,7 @@ export function NewPassword() {
   }, [isFocused]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
       <ScrollView>
         <TouchableWithoutFeedback 
           onPress={Keyboard.dismiss}

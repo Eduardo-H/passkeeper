@@ -9,13 +9,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
     paddingTop: getStatusBarHeight() + 30,
-    paddingBottom: 30,
-    backgroundColor: theme.colors.background
+    paddingBottom: 30
   },
   title: {
     fontSize: 22,
-    fontFamily: theme.fonts.text600,
-    color: theme.colors.text
+    fontFamily: theme.fonts.text600
   },
   illustration: {
     marginVertical: 25
@@ -23,7 +21,6 @@ export const styles = StyleSheet.create({
   text: {
     fontSize: 14,
     fontFamily: theme.fonts.text400,
-    color: theme.colors.text,
     textAlign: 'center'
   }
 })

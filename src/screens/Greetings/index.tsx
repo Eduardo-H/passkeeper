@@ -10,24 +10,26 @@ import { SmallButton } from '../../components/SmallButton';
 import GreetingsSvg from '../../assets/greetings.svg';
 
 import { styles } from './styles';
+import { useTheme } from '../../hooks/useTheme';
 
 export function Greetings() {
   const navigation = useNavigation();
+  const { theme } = useTheme();
 
   function handleGoToNextScreen() {
     navigation.navigate('Disclaimer');
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
       <View/>
 
       <View>
-        <Text style={styles.title}>
+        <Text style={[styles.title, { color: theme.text }]}>
           Welcome to PassKeeper
         </Text>
 
-        <Text style={styles.subtitle}>
+        <Text style={[styles.subtitle, { color: theme.text }]}>
           Save your passwords in a {'\n'} 
           fast and safe way
         </Text>

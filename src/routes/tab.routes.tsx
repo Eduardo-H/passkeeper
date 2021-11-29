@@ -4,27 +4,30 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { Home } from '../screens/Home';
 
-import { theme } from '../global/styles/themes';
 import { NewPassword } from '../screens/NewPassword';
+import { useTheme } from '../hooks/useTheme';
+import { theme as globalTheme } from '../global/styles/themes';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
 export default function TabRoutes() {
+  const { theme } = useTheme();
+
   return (
     <Navigator
       tabBarOptions={{
-        activeTintColor: theme.colors.text,
-        inactiveTintColor: theme.colors.text,
+        activeTintColor: theme.text,
+        inactiveTintColor: theme.text,
         style: {
           height: 75,
           paddingTop: 13,
           paddingBottom: 13,
-          backgroundColor: theme.colors.tabBackground,
-          borderTopColor: theme.colors.tabBackground
+          backgroundColor: theme.tabBackground,
+          borderTopColor: theme.tabBackground
         },
         labelStyle: {
-          fontFamily: theme.fonts.text400,
-          color: theme.colors.text
+          fontFamily: globalTheme.fonts.text400,
+          color: theme.text
         }
       }}      
     >

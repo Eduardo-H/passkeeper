@@ -7,6 +7,7 @@ import { Modal } from '../Modal';
 import { categories } from '../../utils/categories';
 
 import { styles } from './styles';
+import { useTheme } from '../../hooks/useTheme';
 
 interface PickerProps {
   selectedCategory: Category;
@@ -14,6 +15,7 @@ interface PickerProps {
 }
 
 export function Picker({ selectedCategory, onSelect }: PickerProps) {
+  const { theme } = useTheme();
   const [modalVisible, setModalVisible] = useState(false);
 
   function handleSelectItem(item: Category) {
@@ -28,11 +30,11 @@ export function Picker({ selectedCategory, onSelect }: PickerProps) {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.label}>Category</Text>
+        <Text style={[styles.label, { color: theme.label }]}>Category</Text>
 
         <RectButton onPress={toggleModal}>
-          <View style={styles.input}>
-            <Text style={styles.text}>
+          <View style={[styles.input, { backgroundColor: theme.input, borderColor: theme.secondary }]}>
+            <Text style={[styles.text, { color: theme.text }]}>
               { selectedCategory.title }
             </Text>
 

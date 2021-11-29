@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
-import { theme } from '../../global/styles/themes';
+import { useTheme } from '../../hooks/useTheme';
 
 import { styles } from './styles';
 
@@ -15,16 +15,18 @@ export function CategoryButton({
   isActive, 
   ...rest 
 }: CategoryButtonProps) {
+  const { theme } = useTheme();
+
   return (
     <RectButton 
       style={
         isActive 
         ? [styles.container, styles.active] 
-        : [styles.container, styles.inactive] 
+        : [styles.container, { backgroundColor: theme.secondary }] 
       }
       {...rest}
     >
-      <Text style={ isActive ? [styles.title, { color: theme.colors.contrastText }] : styles.title }>
+      <Text style={ isActive ? [styles.title, { color: theme.contrastText }] : [styles.title, { color: theme.text}] }>
         { title }
       </Text>
     </RectButton>

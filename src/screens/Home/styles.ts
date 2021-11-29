@@ -3,8 +3,7 @@ import { theme } from '../../global/styles/themes';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: theme.colors.background
+    flex: 1
   },
   info: {
     paddingHorizontal: 20,
@@ -14,13 +13,11 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontFamily: theme.fonts.text500,
-    color: theme.colors.text
+    fontFamily: theme.fonts.text500
   },
   count: {
     fontSize: 13,
-    fontFamily: theme.fonts.text400,
-    color: theme.colors.text
+    fontFamily: theme.fonts.text400
   },
   empty: {
     alignItems: 'center',
@@ -29,7 +26,6 @@ export const styles = StyleSheet.create({
   emptyText: {
     fontSize: 14,
     fontFamily: theme.fonts.text500,
-    color: theme.colors.text,
     textAlign: 'center',
     marginTop: 10
   }

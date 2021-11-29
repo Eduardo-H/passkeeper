@@ -4,8 +4,8 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 
-import { theme } from '../../global/styles/themes';
 import { styles } from './styles';
+import { useTheme } from '../../hooks/useTheme';
 
 interface HeaderProps {
   title: string;
@@ -13,6 +13,7 @@ interface HeaderProps {
 
 export function Header({ title }: HeaderProps) {
   const navigation = useNavigation();
+  const { theme } = useTheme();
 
   function handleGoBack() {
     navigation.goBack();
@@ -24,11 +25,11 @@ export function Header({ title }: HeaderProps) {
         <AntDesign 
           name="left" 
           size={22} 
-          color={theme.colors.text} 
+          color={theme.text} 
         />
       </BorderlessButton>
 
-      <Text style={styles.title}>
+      <Text style={[styles.title, { color: theme.text }]}>
         { title }
       </Text>
 

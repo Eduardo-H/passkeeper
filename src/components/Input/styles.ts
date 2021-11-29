@@ -8,20 +8,16 @@ export const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    fontFamily: theme.fonts.text400,
-    color: theme.colors.label
+    fontFamily: theme.fonts.text400
   },
   input: {
     height: 50,
     paddingHorizontal: 15,
     fontSize: 14,
     fontFamily: theme.fonts.text400,
-    color: theme.colors.text,
     textDecorationColor: theme.colors.text,
-    backgroundColor: theme.colors.input,
     borderWidth: 1,
     borderRadius: 8,
-    borderColor: theme.colors.secondary
   },
   invalid: {
     borderColor: theme.colors.invalid

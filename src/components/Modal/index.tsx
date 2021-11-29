@@ -6,6 +6,7 @@ import {
   Modal as ReactModal 
 } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
+import { useTheme } from '../../hooks/useTheme';
 
 import { ModalButton } from '../ModalButton';
 
@@ -24,6 +25,8 @@ export function Modal({
   toggleModal,
   handleSelectItem
 }: ModalProps) {
+  const { theme } = useTheme();
+
   return (
     <ReactModal
       animationType="slide"
@@ -31,8 +34,8 @@ export function Modal({
       transparent
     >
       <View style={styles.overlay}>
-        <View style={styles.modalView}>
-          <Text style={styles.modalTitle}>
+        <View style={[styles.modalView, { backgroundColor: theme.background }]}>
+          <Text style={[styles.modalTitle, { color: theme.text }]}>
             Select a category
           </Text>
 
@@ -53,7 +56,7 @@ export function Modal({
             style={styles.cancelButton}
             onPress={toggleModal}
           >
-            <Text style={styles.cancelButtonText}>
+            <Text style={[styles.cancelButtonText, { color: theme.text }]}>
               Cancel
             </Text>
           </Pressable>

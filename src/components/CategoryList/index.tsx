@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Text } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useTheme } from '../../hooks/useTheme';
 
 import { categories } from '../../utils/categories';
 import { CategoryButton } from '../CategoryButton';
@@ -17,9 +18,11 @@ export function CategoryList({
   categorySelected,
   setCategorySelected
 }: CategoryListProps) {
+  const { theme } = useTheme();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
+      <Text style={[styles.title, { color: theme.text }]}>
         Wich category{'\n'}
         are you looking for?
       </Text>

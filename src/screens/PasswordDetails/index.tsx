@@ -3,15 +3,14 @@ import { Alert, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
-import { AntDesign } from '@expo/vector-icons';
+import { RectButton } from 'react-native-gesture-handler';
 
 import { COLLECTION_PASSWORDS } from '../../configs/database';
 import { categories } from '../../utils/categories';
 
-import { theme } from '../../global/styles/themes';
 import { styles } from './styles';
 import { Header } from '../../components/Header';
+import { useTheme } from '../../hooks/useTheme';
 
 interface Params {
   password: Password;
@@ -21,13 +20,11 @@ export function PasswordDetails() {
   const navigation = useNavigation();
   const route = useRoute();
 
+  const { theme } = useTheme();
+
   const { password } = route.params as Params;
 
   const category = categories.find(item => item.id === password.categoryId);
-
-  function handleGoBack() {
-    navigation.goBack();
-  }
 
   function handleUpdate() {
     navigation.navigate('NewPassword', {
@@ -70,28 +67,28 @@ export function PasswordDetails() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
       <Header title="Details" />
 
-      <View style={styles.card}>
+      <View style={[styles.card, { backgroundColor: theme.secondary }]}>
         <View style={styles.infoGroup}>
-          <Text style={styles.label}>Title</Text>
-          <Text style={styles.text}>{ password.title }</Text>
+          <Text style={[styles.label, { color: theme.label }]}>Title</Text>
+          <Text style={[styles.text, { color: theme.text }]}>{ password.title }</Text>
         </View>
 
         <View style={styles.infoGroup}>
-          <Text style={styles.label}>Password</Text>
-          <Text style={styles.text}>{ password.password }</Text>
+          <Text style={[styles.label, { color: theme.label }]}>Password</Text>
+          <Text style={[styles.text, { color: theme.text }]}>{ password.password }</Text>
         </View>
 
         <View style={styles.infoGroup}>
-          <Text style={styles.label}>Category</Text>
-          <Text style={styles.text}>{ category.title }</Text>
+          <Text style={[styles.label, { color: theme.label }]}>Category</Text>
+          <Text style={[styles.text, { color: theme.text }]}>{ category.title }</Text>
         </View>
 
         <View>
-          <Text style={styles.label}>Created at</Text>
-          <Text style={styles.text}>
+          <Text style={[styles.label, { color: theme.label }]}>Created at</Text>
+          <Text style={[styles.text, { color: theme.text }]}>
             { 
               new Date(password.createdAt).toLocaleDateString('us', {
                 day: '2-digit',
@@ -107,7 +104,7 @@ export function PasswordDetails() {
             style={[styles.button, styles.updateButton]}
             onPress={handleUpdate}
           >
-            <Text style={[styles.buttonText, { color: theme.colors.contrastText }]}>
+            <Text style={[styles.buttonText, { color: theme.contrastText }]}>
               Update
             </Text>
           </RectButton>
@@ -116,7 +113,7 @@ export function PasswordDetails() {
             style={[styles.button, styles.deletButton]}
             onPress={handleDelete}
           >
-            <Text style={[styles.buttonText, { color: theme.colors.white }]}>
+            <Text style={[styles.buttonText, { color: theme.white }]}>
               Delete
             </Text>
           </RectButton>

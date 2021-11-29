@@ -11,6 +11,7 @@ import AppLoading from 'expo-app-loading';
 
 import { Routes } from './src/routes';
 import { AuthProvider } from './src/hooks/useAuth';
+import { ThemeProvider } from './src/hooks/useTheme';
 
 export default function App() {
   const [ fontsLoaded ] = useFonts({
@@ -26,14 +27,16 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <AuthProvider>
-        <StatusBar 
-          animated
-          barStyle={"dark-content"} 
-          backgroundColor="transparent"
-          translucent
-        />
+        <ThemeProvider>
+          <StatusBar 
+            animated
+            barStyle={"dark-content"} 
+            backgroundColor="transparent"
+            translucent
+          />
 
-        <Routes />
+          <Routes />
+        </ThemeProvider>
       </AuthProvider>
     </SafeAreaProvider>
   );

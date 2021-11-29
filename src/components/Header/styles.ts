@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     fontSize: 18,
     fontFamily: theme.fonts.text400,
-    color: theme.colors.text,
     textAlign: 'center'
   }
 });

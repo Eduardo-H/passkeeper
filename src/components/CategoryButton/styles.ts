@@ -13,12 +13,8 @@ export const styles = StyleSheet.create({
   active: {
     backgroundColor: theme.colors.primary,
   },
-  inactive: {
-    backgroundColor: theme.colors.secondary,
-  },
   title: {
     fontSize: 13,
-    fontFamily: theme.fonts.text400,
-    color: theme.colors.text
+    fontFamily: theme.fonts.text400
   }
 });

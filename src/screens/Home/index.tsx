@@ -13,10 +13,12 @@ import { SkeletonList } from '../../components/SkeletonList';
 import EmptySvg from '../../assets/empty.svg';
 
 import { styles } from './styles';
+import { useTheme } from '../../hooks/useTheme';
 
 export function Home() {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
+  const { theme } = useTheme();
 
   const [categorySelected, setCategorySelected] = useState('');
   const [filteredPasswords, setFilteredPasswords] = useState<Password[]>([]);
@@ -68,7 +70,7 @@ export function Home() {
   }, [isFocused]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
       <HomeHeader />
 
       <CategoryList
@@ -77,11 +79,11 @@ export function Home() {
       />
 
       <View style={styles.info}>
-        <Text style={styles.title}>
+        <Text style={[styles.title, { color: theme.text }]}>
           Your Passwords
         </Text>
 
-        <Text style={styles.count}>
+        <Text style={[styles.count, { color: theme.text }]}>
           Total {filteredPasswords.length}
         </Text>
       </View>
@@ -100,7 +102,7 @@ export function Home() {
             <View style={styles.empty}>
               <EmptySvg width={200} height={120} />
   
-              <Text style={styles.emptyText}>
+              <Text style={[styles.emptyText, { color: theme.text }]}>
                 No data found
               </Text>
             </View>

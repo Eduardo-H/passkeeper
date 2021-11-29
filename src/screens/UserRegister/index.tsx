@@ -6,8 +6,8 @@ import { TextInput, TouchableWithoutFeedback } from 'react-native-gesture-handle
 
 import { Button } from '../../components/Button';
 import { COLLECTION_USERS } from '../../configs/database';
-import { theme } from '../../global/styles/themes';
 import { useAuth } from '../../hooks/useAuth';
+import { useTheme } from '../../hooks/useTheme';
 
 import { styles } from './styles';
 
@@ -16,6 +16,7 @@ export function UserRegister() {
 
   const navigation = useNavigation();
   const { loadUser } = useAuth();
+  const { theme } = useTheme();
   
   async function handleSaveUsername() {
     const newUser = {
@@ -34,21 +35,30 @@ export function UserRegister() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
       <TouchableWithoutFeedback 
         onPress={Keyboard.dismiss}
         style={styles.content}
       >
-        <Text style={styles.title}>
+        <Text style={[styles.title, { color: theme.text }]}>
           PassKeeper
         </Text>
 
         <View style={styles.form}>
-          <Text style={styles.label}>How can I call you?</Text>
+          <Text style={[styles.label, { color: theme.label }]}>
+            How can I call you?
+          </Text>
           <TextInput
-            style={styles.input}
+            style={[
+              styles.input, 
+              { 
+                backgroundColor: theme.input,
+                borderColor: theme.secondary,
+                color: theme.text 
+              }
+            ]}
             maxLength={20}
-            selectionColor={theme.colors.text}
+            selectionColor={theme.text}
             onChangeText={setUsername}
           />
         </View>

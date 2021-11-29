@@ -9,7 +9,6 @@ export const styles = StyleSheet.create({
   dot: {
     width: 5,
     height: 5,
-    backgroundColor: theme.colors.text,
     borderRadius: 3,
     marginRight: 3
   }

@@ -4,15 +4,13 @@ import { theme } from '../../global/styles/themes';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 20,
-    backgroundColor: theme.colors.background,
+    paddingVertical: 20
   },
   card: {
     width: 'auto',
     marginTop: 20,
     marginHorizontal: 20,
     padding: 20,
-    backgroundColor: theme.colors.secondary,
     borderRadius: 8
   },
   infoGroup: {
@@ -21,13 +19,11 @@ export const styles = StyleSheet.create({
   label: {
     fontSize: 14,
     fontFamily: theme.fonts.text400,
-    color: theme.colors.label,
     lineHeight: 18
   },
   text: {
     fontSize: 16,
-    fontFamily: theme.fonts.text500,
-    color: theme.colors.text
+    fontFamily: theme.fonts.text500
   },
   buttonGroup: {
     flexDirection: 'row',
