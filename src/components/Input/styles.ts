@@ -7,14 +7,14 @@ export const styles = StyleSheet.create({
     marginBottom: 15
   },
   label: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: theme.fonts.text400,
     color: theme.colors.label
   },
   input: {
-    height: 56,
+    height: 50,
     paddingHorizontal: 15,
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: theme.fonts.text400,
     color: theme.colors.text,
     textDecorationColor: theme.colors.text,

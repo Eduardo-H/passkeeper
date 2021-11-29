@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8    
   },
   title: {
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: theme.fonts.text500,
     color: theme.colors.contrastText,
     lineHeight: 25

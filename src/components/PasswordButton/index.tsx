@@ -45,7 +45,7 @@ export function PasswordButton({ password, ...rest }: PasswordCardProps) {
       >
         <Ionicons 
           name={ hidePassword ? "eye-off-outline" : "eye-outline" } 
-          size={26} 
+          size={24} 
           color={theme.colors.text} 
         />
       </RectButton>

@@ -39,7 +39,7 @@ export function Picker({ selectedCategory, onSelect }: PickerProps) {
             <View>
               <Feather 
                 name="arrow-down" 
-                size={24} 
+                size={20} 
                 color="gray" 
               />
             </View>

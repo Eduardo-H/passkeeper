@@ -11,13 +11,13 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.background
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontFamily: theme.fonts.text600,
     color: theme.colors.text,
     textAlign: 'center',
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: theme.fonts.text400,
     color: theme.colors.text,
     textAlign: 'center',

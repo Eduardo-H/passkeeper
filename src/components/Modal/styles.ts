@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   modalTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: theme.fonts.text500,
     color: theme.colors.text,
     textAlign: "center"

@@ -7,17 +7,17 @@ export const styles = StyleSheet.create({
     marginBottom: 15
   },
   label: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: theme.fonts.text400,
     color: theme.colors.label
   },
   text: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: theme.fonts.text400,
     color: theme.colors.text
   },
   input: {
-    height: 56,
+    height: 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

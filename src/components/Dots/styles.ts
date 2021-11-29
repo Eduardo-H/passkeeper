@@ -7,8 +7,8 @@ export const styles = StyleSheet.create({
     paddingVertical: 10
   },
   dot: {
-    width: 6,
-    height: 6,
+    width: 5,
+    height: 5,
     backgroundColor: theme.colors.text,
     borderRadius: 3,
     marginRight: 3

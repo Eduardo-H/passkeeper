@@ -23,7 +23,7 @@ export function Header({ title }: HeaderProps) {
       <BorderlessButton onPress={handleGoBack}>
         <AntDesign 
           name="left" 
-          size={24} 
+          size={22} 
           color={theme.colors.text} 
         />
       </BorderlessButton>

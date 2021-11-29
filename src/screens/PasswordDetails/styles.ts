@@ -22,10 +22,10 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: theme.fonts.text400,
     color: theme.colors.label,
-    lineHeight: 20
+    lineHeight: 18
   },
   text: {
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: theme.fonts.text500,
     color: theme.colors.text
   },
@@ -36,8 +36,8 @@ export const styles = StyleSheet.create({
     marginTop: 20
   },
   button: {
-    width: '40%',
-    height: 50,
+    width: '35%',
+    height: 45,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 8
@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.invalid
   },
   buttonText: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: theme.fonts.text400
   }
 });

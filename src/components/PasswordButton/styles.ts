@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: theme.fonts.text600,
     color: theme.colors.text
   },

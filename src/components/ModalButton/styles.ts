@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     marginBottom: 10
   },
   title: {
-    fontSize: 15,
+    fontSize: 13,
     fontFamily: theme.fonts.text400,
     color: theme.colors.text,
   }

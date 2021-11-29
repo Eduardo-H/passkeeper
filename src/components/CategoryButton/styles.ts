@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.secondary,
   },
   title: {
-    fontSize: 14,
+    fontSize: 13,
     fontFamily: theme.fonts.text400,
     color: theme.colors.text
   }

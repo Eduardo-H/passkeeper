@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   title: {
-    fontSize: 20,
+    fontSize: 16,
     fontFamily: theme.fonts.text500,
     color: theme.colors.text
   },
@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     marginTop: 30
   },
   emptyText: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: theme.fonts.text500,
     color: theme.colors.text,
     textAlign: 'center',

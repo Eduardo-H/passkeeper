@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     marginVertical: 20
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: theme.fonts.text400,
     color: theme.colors.text,
     paddingLeft: 20,

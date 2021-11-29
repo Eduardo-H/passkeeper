@@ -5,10 +5,10 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.primary,
     borderRadius: 12,
-    padding: 6,
+    padding: 12,
   },
   buttonIcon: {
-    fontSize: 40,
+    fontSize: 30,
     color: theme.colors.text
   }
 });

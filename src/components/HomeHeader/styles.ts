@@ -16,16 +16,16 @@ export const styles =  StyleSheet.create({
     paddingTop: getStatusBarHeight()
   },
   greeting: {
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: theme.fonts.text400,
     color: theme.colors.contrastText,
     lineHeight: 28
   },
   username: {
-    fontSize: 22,
+    fontSize: 20,
     fontFamily: theme.fonts.text600,
     color: theme.colors.contrastText,
-    lineHeight: 24
+    lineHeight: 22
   },
   settingsButton: {
     padding: 8,

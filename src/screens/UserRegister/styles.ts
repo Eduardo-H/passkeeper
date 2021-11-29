@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.background
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontFamily: theme.fonts.text600,
     color: theme.colors.text
   },
@@ -25,17 +25,17 @@ export const styles = StyleSheet.create({
     width: '100%'
   },
   label: {
-    fontSize: 20,
+    fontSize: 16,
     fontFamily: theme.fonts.text400,
     textAlign: 'center',
     color: theme.colors.text,
     marginBottom: 5
   },
   input: {
-    height: 56,
+    height: 50,
     paddingHorizontal: 15,
     backgroundColor: theme.colors.input,
-    fontSize: 17,
+    fontSize: 14,
     fontFamily: theme.fonts.text400,
     color: theme.colors.text,
     textAlign: 'center',
