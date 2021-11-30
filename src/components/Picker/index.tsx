@@ -33,7 +33,7 @@ export function Picker({ selectedCategory, onSelect }: PickerProps) {
         <Text style={[styles.label, { color: theme.label }]}>Category</Text>
 
         <RectButton onPress={toggleModal}>
-          <View style={[styles.input, { backgroundColor: theme.input, borderColor: theme.secondary }]}>
+          <View style={[styles.input, { backgroundColor: theme.input, borderColor: theme.inputBorder }]}>
             <Text style={[styles.text, { color: theme.text }]}>
               { selectedCategory.title }
             </Text>

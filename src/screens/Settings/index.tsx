@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Keyboard, Switch, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { BorderlessButton, TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { AntDesign } from '@expo/vector-icons';
 
 import { useAuth } from '../../hooks/useAuth';
+import { useTheme } from '../../hooks/useTheme';
 
-import { styles } from './styles';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { Header } from '../../components/Header';
-import { useTheme } from '../../hooks/useTheme';
+
+import { styles } from './styles';
 
 export function Settings() {
   const { user, updateUser } = useAuth();
@@ -63,7 +63,8 @@ export function Settings() {
             </Text>
 
             <Switch
-              style={styles.switch}
+              trackColor={{ false: '#a7a7a7', true: '#2A3650' }}
+              thumbColor={ theme.theme_type === 'light' ? '#f3f3f3' : '#495e8a' }
               onValueChange={toggleTheme}
               value={theme.theme_type === 'dark'}
             />

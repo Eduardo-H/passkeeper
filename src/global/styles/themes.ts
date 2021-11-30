@@ -57,6 +57,7 @@ export const theme = {
     contrastText: '#2C2C2C',
     label: '#737373',
     input: '#FFFFFF',
+    inputBorder: '#F3F3F3',
     white: '#FFFFFF',
     invalid: '#FF3F3F',
     tabBackground: '#FFFFFF'
@@ -71,6 +72,7 @@ export const theme = {
     contrastText: '#2C2C2C',
     label: '#CCCCCC',
     input: '#2A3650',
+    inputBorder: '#334363',
     white: '#FFFFFF',
     invalid: '#FF3F3F',
     tabBackground: '#1F2531'

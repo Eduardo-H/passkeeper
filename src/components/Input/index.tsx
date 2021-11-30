@@ -25,7 +25,7 @@ export function Input({ label, isInvalid, ...rest }: InputProps) {
         style={
           isInvalid 
           ? [styles.input, styles.invalid, { backgroundColor: theme.input, color: theme.text }] 
-          : [styles.input, { backgroundColor: theme.input, borderColor: theme.secondary, color: theme.text }]
+          : [styles.input, { backgroundColor: theme.input, borderColor: theme.inputBorder, color: theme.text }]
         }
         selectionColor={theme.text}
         {...rest}
