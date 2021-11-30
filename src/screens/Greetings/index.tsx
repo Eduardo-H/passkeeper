@@ -7,7 +7,8 @@ import {
 import { useNavigation } from '@react-navigation/native';
 
 import { SmallButton } from '../../components/SmallButton';
-import GreetingsSvg from '../../assets/greetings.svg';
+import GreetingsLightSvg from '../../assets/light/greetings.svg';
+import GreetingsDarkSvg from '../../assets/dark/greetings.svg';
 
 import { styles } from './styles';
 import { useTheme } from '../../hooks/useTheme';
@@ -33,8 +34,13 @@ export function Greetings() {
           Save your passwords in a {'\n'} 
           fast and safe way
         </Text>
-
-        <GreetingsSvg width={300} height={220} />
+        
+        { 
+          theme.theme_type === 'light' 
+          ? <GreetingsLightSvg width={300} height={220} /> 
+          : <GreetingsDarkSvg width={300} height={220} /> 
+        }
+        
       </View>
 
       <SmallButton onPressAction={handleGoToNextScreen} />

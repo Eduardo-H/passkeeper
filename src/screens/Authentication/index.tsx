@@ -7,7 +7,8 @@ import { authenticateAsync } from 'expo-local-authentication';
 import { Button } from '../../components/Button';
 import { useAuth } from '../../hooks/useAuth';
 
-import AuthenticationSvg from '../../assets/authentication.svg';
+import AuthenticationLightSvg from '../../assets/light/authentication.svg';
+import AuthenticationDarkSvg from '../../assets/dark/authentication.svg';
 
 import { styles } from './styles';
 import { useTheme } from '../../hooks/useTheme';
@@ -38,7 +39,11 @@ export function Authentication() {
           Authenticate yourself to use the app.
         </Text>
 
-        <AuthenticationSvg height={160} style={styles.illustration} />
+        {
+          theme.theme_type === 'light'
+          ? <AuthenticationLightSvg height={160} style={styles.illustration} />
+          : <AuthenticationDarkSvg height={160} style={styles.illustration} />
+        }
       </View>
 
       <Button 

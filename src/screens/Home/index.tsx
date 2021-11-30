@@ -10,7 +10,8 @@ import { HomeHeader } from '../../components/HomeHeader';
 import { PasswordList } from '../../components/PasswordList';
 import { SkeletonList } from '../../components/SkeletonList';
 
-import EmptySvg from '../../assets/empty.svg';
+import EmptyLightSvg from '../../assets/light/empty.svg';
+import EmptyDarkSvg from '../../assets/dark/empty.svg';
 
 import { styles } from './styles';
 import { useTheme } from '../../hooks/useTheme';
@@ -100,7 +101,12 @@ export function Home() {
             />
           ) : (
             <View style={styles.empty}>
-              <EmptySvg width={200} height={120} />
+              {
+                theme.theme_type === 'light' 
+                ? <EmptyLightSvg width={200} height={120} />
+                : <EmptyDarkSvg width={200} height={120} />
+              }
+              
   
               <Text style={[styles.emptyText, { color: theme.text }]}>
                 No data found

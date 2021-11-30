@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import SecuritySvg from '../../assets/security.svg';
+import SecurityLightSvg from '../../assets/light/security.svg';
+import SecurityDarkSvg from '../../assets/dark/security.svg';
 import { SmallButton } from '../../components/SmallButton';
 
 import { styles } from './styles';
@@ -28,11 +29,19 @@ export function Disclaimer() {
           device, after being encrypted, of course. 
         </Text>
 
-        <SecuritySvg 
-          style={styles.illustration}
-          width={300} 
-          height={220} 
-        />
+        {
+          theme.theme_type === 'light'
+          ? <SecurityLightSvg 
+            style={styles.illustration}
+            width={300} 
+            height={220} 
+          />
+          : <SecurityDarkSvg 
+            style={styles.illustration}
+            width={300} 
+            height={220} 
+          />
+        }
 
         <Text style={[styles.text, { color: theme.text }]}>
           No data is sent to the internet, so {'\n'}
