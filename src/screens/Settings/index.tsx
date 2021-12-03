@@ -63,6 +63,7 @@ export function Settings() {
             </Text>
 
             <Switch
+              style={{ transform: [{ scaleX: 1.3 }, { scaleY: 1.3 }] }}
               trackColor={{ false: '#a7a7a7', true: '#2A3650' }}
               thumbColor={theme.theme_type === 'light' ? '#f3f3f3' : '#495e8a'}
               onValueChange={toggleTheme}
