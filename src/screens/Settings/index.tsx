@@ -19,8 +19,8 @@ export function Settings() {
   const navigation = useNavigation();
 
   const [username, setUsername] = useState(user.username);
-  const [isUsernameInvalid, setIsUsernameInvalid] = useState(false);  
-  const [updateButtonVisible, setUpdateButtonVisible] = useState(false)
+  const [isUsernameInvalid, setIsUsernameInvalid] = useState(false);
+  const [updateButtonVisible, setUpdateButtonVisible] = useState(false);
 
   function handleUpdateUser() {
     if (username.trim() === '') {
@@ -42,7 +42,7 @@ export function Settings() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
-      <TouchableWithoutFeedback 
+      <TouchableWithoutFeedback
         onPress={Keyboard.dismiss}
         style={{ height: '100%' }}
       >
@@ -50,7 +50,7 @@ export function Settings() {
 
         <View style={styles.content}>
           <Input
-            label="Username" 
+            label="Username"
             isInvalid={isUsernameInvalid}
             value={username}
             onChangeText={setUsername}
@@ -64,21 +64,21 @@ export function Settings() {
 
             <Switch
               trackColor={{ false: '#a7a7a7', true: '#2A3650' }}
-              thumbColor={ theme.theme_type === 'light' ? '#f3f3f3' : '#495e8a' }
+              thumbColor={theme.theme_type === 'light' ? '#f3f3f3' : '#495e8a'}
               onValueChange={toggleTheme}
               value={theme.theme_type === 'dark'}
             />
           </View>
 
-          <View 
-            style={ 
-              updateButtonVisible 
-              ? { marginTop: 'auto', display: 'flex' } 
-              : { marginTop: 'auto', display: 'none'}
+          <View
+            style={
+              updateButtonVisible
+                ? { marginTop: 'auto', display: 'flex' }
+                : { marginTop: 'auto', display: 'none' }
             }
           >
-            <Button 
-              title="Update user" 
+            <Button
+              title="Update user"
               onPress={handleUpdateUser}
             />
           </View>

@@ -28,5 +28,21 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.text500,
     textAlign: 'center',
     marginTop: 10
+  },
+  search: {
+    height: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginHorizontal: 20,
+    marginVertical: 20,
+    paddingHorizontal: 15,
+    borderRadius: 10
+  },
+  searchInput: {
+    flex: 1,
+    height: 50,
+    fontSize: 14,
+    fontFamily: theme.fonts.text400,
+    paddingLeft: 15
   }
 });

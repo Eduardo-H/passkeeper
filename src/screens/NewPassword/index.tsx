@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import 'react-native-get-random-values';
-import { 
-  Keyboard, 
-  StatusBar, 
-  Text, 
-  ToastAndroid, 
-  View 
+import {
+  Keyboard,
+  ToastAndroid,
+  View
 } from 'react-native';
-import { 
-  BorderlessButton, 
-  ScrollView, 
-  TouchableWithoutFeedback 
+import {
+  ScrollView,
+  TouchableWithoutFeedback
 } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute, useIsFocused } from '@react-navigation/native';
@@ -57,14 +54,14 @@ export function NewPassword() {
     } else {
       setIsTitleInputInvalid(false);
     }
-    
+
     if (password.trim() === '') {
       setIsPasswordInputInvalid(true);
       isInvalid = true;
     } else {
       setIsPasswordInputInvalid(false);
     }
-    
+
     return isInvalid;
   }
 
@@ -86,7 +83,7 @@ export function NewPassword() {
       await SecureStore.setItemAsync(passwordKey, password);
     } catch (err) {
       ToastAndroid.show('Unable to save the password', ToastAndroid.SHORT);
-    }    
+    }
 
     // Fetching existent data
     const data = await AsyncStorage.getItem(COLLECTION_PASSWORDS);
@@ -146,20 +143,20 @@ export function NewPassword() {
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
       <ScrollView>
-        <TouchableWithoutFeedback 
+        <TouchableWithoutFeedback
           onPress={Keyboard.dismiss}
         >
           <Header title="New Password" />
 
           <View style={styles.content}>
-            <Input 
-              label="Title" 
+            <Input
+              label="Title"
               isInvalid={isTitleInputInvalid}
               value={title}
               onChangeText={setTitle}
             />
 
-            <Input 
+            <Input
               label="Password"
               isInvalid={isPasswordInputInvalid}
               secureTextEntry
@@ -177,7 +174,7 @@ export function NewPassword() {
 
       <View style={styles.footer}>
         <Button
-          title="Save" 
+          title="Save"
           onPress={handleSavePassword}
         />
       </View>
