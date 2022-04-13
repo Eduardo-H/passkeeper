@@ -4,7 +4,9 @@
 
 <h1 align="center">Keep your passwords safe</h1>
 
-<img src=".github/highlight.png" />
+<div align="center">
+  <img src=".github/highlight.png" height="400px" />
+</div>
 
 ## About
 This app was created to develop my React Native skills, the main challenge was to develop an app that I would use, so I decided to create PassKeeper. Its main goal is to manage your passwords in an easy and safe way.
