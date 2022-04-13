@@ -125,7 +125,7 @@ export function Home() {
         ]}>
           <AntDesign
             name="search1"
-            size={20}
+            size={18}
             color={theme.label}
           />
 

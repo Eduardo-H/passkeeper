@@ -40,9 +40,10 @@ export const styles = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
-    height: 50,
+    height: '100%',
     fontSize: 14,
     fontFamily: theme.fonts.text400,
-    paddingLeft: 15
+    paddingLeft: 15,
+    paddingTop: 3
   }
 });
